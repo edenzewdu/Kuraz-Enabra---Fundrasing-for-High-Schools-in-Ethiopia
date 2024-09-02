@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class Authmanager extends Controller
 {
@@ -41,6 +42,16 @@ class Authmanager extends Controller
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $user = User::create($data);
-        
+        if(!user){
+            return redirect(route('/registration'))->with("error", "regisstration failed, try again.");
+        }
+        return redirect(route('login'))->with('sucess', 'registration sucess, Please Login ');
     }
+
+    function Logout(){
+        Session::flush();
+        Auth::logout();
+        return rediirect(route('login'));
+    }
+
 }
