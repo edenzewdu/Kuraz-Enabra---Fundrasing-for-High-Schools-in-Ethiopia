@@ -3,20 +3,33 @@
 @section('content')
 
     <div class = 'container'>
-        <form action = "{{route('login.post')}}" method='POST' class= 'ms-auto ne-auto' style ='width:100px'>
+      <div class="mt-5">
+        @if($errors->any())
+          <div class="col-12">
+            @foreach($errors->all() as $error)
+              <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+          </div>
+        @endif
+  
+        @if(session()->has('error'))
+          <div class="alert alert-danger">{{session('error')}}</div>
+        @endif
+  
+        @if(session()->has('success'))
+          <div class="alert alert-danger">{{session('success')}}</div>
+        @endif
+  
+      </div>
+        <form action = "{{route('login.post')}}" method='POST' class= 'ms-auto ne-auto' >
           @csrf  
           <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <label class="form-label">Email address</label>
+              <input type="email" name="email" class="form-control" >
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <label class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

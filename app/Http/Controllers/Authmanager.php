@@ -12,6 +12,10 @@ class Authmanager extends Controller
 {
     function login(){
         return view ('login');
+        if(Auth::check()){
+            return redirect(route('home'));
+        }
+        return view('login');
     }
 
     function registration(){
@@ -42,16 +46,16 @@ class Authmanager extends Controller
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $user = User::create($data);
-        if(!user){
-            return redirect(route('/registration'))->with("error", "regisstration failed, try again.");
+        if(!$user){
+            return redirect(route('registration'))->with("error", "registration failed, try again.");
         }
-        return redirect(route('login'))->with('sucess', 'registration sucess, Please Login ');
+        return redirect(route('login'))->with('success', 'registration sucess, Please Login ');
     }
 
     function Logout(){
         Session::flush();
         Auth::logout();
-        return rediirect(route('login'));
+        return redirect(route('login'));
     }
 
 }
