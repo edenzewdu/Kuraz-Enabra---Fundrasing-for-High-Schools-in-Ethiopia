@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.nav')
 @section('title', 'Registration')
 @section('content')
 

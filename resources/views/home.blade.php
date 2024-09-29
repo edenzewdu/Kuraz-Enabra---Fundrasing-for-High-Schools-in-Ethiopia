@@ -1,6 +1,6 @@
-{{-- @extends('layouts.nav')
-
-@section('content') --}}
+@extends('layouts.nav')
+@section('title', 'home')
+@section('content')
 <div class="container text-center">
     <h1>Kuraz Enabra</h1>
     <p>Shining for someone else, like a lamp</p>
@@ -49,4 +49,4 @@
         <p>&copy; 2024 Kuraz Enabra | Empowering Ethiopia's Youth</p>
     </div>
 </footer>
-{{-- @endsection --}}
+@endsection
