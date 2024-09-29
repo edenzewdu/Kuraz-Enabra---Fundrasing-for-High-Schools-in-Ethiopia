@@ -4,7 +4,7 @@
 <div class="container text-center">
     <h1>Kuraz Enabra</h1>
     <p>Shining for someone else, like a lamp</p>
-    <img src="/images/hero.jpg" alt="Fundraising for Schools" class="img-fluid">
+    <img src="{{ asset('image/Kindergarden-Kids-768x496.jpg') }}"  alt="Fundraising for Schools" class="img-fluid">
 </div>
 
 <!-- Testimonials Section -->
