@@ -20,6 +20,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Login</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('about')}}">About</a>
+          </li>
           @endauth
         </ul>
         <span class="navbar-text">@auth{{auth()->user()->name}}@endauth

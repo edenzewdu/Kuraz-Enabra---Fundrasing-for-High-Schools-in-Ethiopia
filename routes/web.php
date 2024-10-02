@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authmanager;
 use App\Http\Controllers\homecontroller;
+use App\Http\Controllers\aboutcontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/registration', [Authmanager::class, 'registration']) -> name('regis
 Route::post('/registration', [Authmanager::class, 'registrationPost']) -> name('registration.post');
 Route::get('/logout', [Authmanager::class, 'logout']) -> name('logout');
 Route::get('/home', [homecontroller::class, 'index'])-> name('home');
+Route::get('/about', [aboutcontroller::class, 'about'])-> name('about');
 
 Route::group(['middleware'=>'auth'], function (){
     Route::get('/profile', function(){
